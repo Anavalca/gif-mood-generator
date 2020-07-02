@@ -1,22 +1,32 @@
 import React from 'react';
 import './App.css';
 import GifsList from './components/GifsList'
-import { Link, Route } from 'wouter'
+import { Switch, Link, Route } from 'wouter'
 
 
 function App() {
 
   return (
     <div className="App">
-      <section className="App-content">
-        <Link to='/gif/happy'>Happy</Link>
-        <Link to='/gif/sad'>sad</Link>
-        <Link to='/gif/dance'>dance</Link>
+      <Switch>
+        <Route exact path="/">
+          <section className="App-content">
+            <h1>¿Cómo te sientes hoy?</h1>
+            <Link to='/gif/happy'>Happy</Link>
+            <Link to='/gif/sad'>sad</Link>
+            <Link to='/gif/dance'>dance</Link>
+
+            <div>
+              <h4>Escribe</h4>
+            <input></input>
+            </div>
+          </section>
+        </Route>
         <Route
           path='/gif/:keyWord'
           component={GifsList}
         />
-      </section>
+      </Switch>
     </div>
   );
 }
