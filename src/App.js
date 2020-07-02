@@ -1,29 +1,21 @@
-import React, {useState, useEffect} from 'react';
-import './App.css'
+import React from 'react';
+import './App.css';
+import GifsList from './components/GifsList'
+import { Link, Route } from 'wouter'
 
-const apiURL = 'https://api.giphy.com/v1/gifs/search?api_key=yZ0RG4RZhg0BTSjNfJsTlziziXLOt5gG&q=cat&limit=25&offset=0&rating=G&lang=en'
 
 function App() {
-  const [gifs, setGifs] = useState([])
-
-  useEffect(function() {
-    fetch(apiURL)
-    .then(res => res.json())
-    .then(response => {
-      const {data} = response
-      const gifs = data.map(image => image.images.downsized_medium.url)
-      console.log(gifs)
-      setGifs(gifs)
-    })
-  }, [])
 
   return (
     <div className="App">
       <section className="App-content">
-        {gifs.map(singleGif => <img alt='gif' src={singleGif}/> )}
-       
-        <button onClick={() => setGifs()}>Cambiar gif</button>
-    
+        <Link to='/gif/happy'>Happy</Link>
+        <Link to='/gif/sad'>sad</Link>
+        <Link to='/gif/dance'>dance</Link>
+        <Route
+          path='/gif/:keyWord'
+          component={GifsList}
+        />
       </section>
     </div>
   );
@@ -50,9 +42,9 @@ export default App;
 //     <div className="App">
 //       <section className="App-content">
 //         {gifs.map(singleGif => <img alt='gif' src={singleGif}/> )}
-       
+
 //         <button onClick={() => setGifs(GIFS2)}>Cambiar gif</button>
-    
+
 //       </section>
 //     </div>
 //   );
