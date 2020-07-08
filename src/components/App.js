@@ -1,6 +1,6 @@
 import React from 'react';
-import './App.css';
-import GifsList from './components/GifsList'
+import '../stylesheets/App.scss';
+import GifsList from './GifsList'
 import { Switch, Link, Route } from 'wouter'
 
 

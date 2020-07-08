@@ -1,6 +1,6 @@
 const apiKey = 'yZ0RG4RZhg0BTSjNfJsTlziziXLOt5gG';
 
-export default function getGifs({ keyWord = 'happy' } = {}) {
+export default function getGifs( {keyWord} ) {
     const apiURL = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${keyWord}&limit=25&offset=0&rating=G&lang=en`
     
     return fetch(apiURL)
