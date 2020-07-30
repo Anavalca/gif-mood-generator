@@ -2,3 +2,12 @@
 @import './utils/mixins';
 @import './layouts/gifsList';
 @import './layouts/gif';
+
+body {
+    background-color: #89b0ae;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
